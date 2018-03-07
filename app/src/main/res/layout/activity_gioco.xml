@@ -80,7 +80,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/editText"
+        android:id="@+id/lettereU"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -340,6 +340,7 @@
         app:layout_constraintVertical_bias="0.466">
 
         <LinearLayout
+            android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal" />
