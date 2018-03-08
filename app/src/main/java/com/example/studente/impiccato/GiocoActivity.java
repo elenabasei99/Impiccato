@@ -1,8 +1,10 @@
 package com.example.studente.impiccato;
 
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,6 +67,7 @@ public class GiocoActivity extends AppCompatActivity {
         while(flag){
             try{
                 lettere.add((parole.get(i).charAt(j)));
+                text.setText(""+text.getText()+lettere.get(j));
                 j++;
             }
             catch (Exception e){
@@ -74,12 +77,21 @@ public class GiocoActivity extends AppCompatActivity {
 
         LinearLayout layout1= (LinearLayout) findViewById(R.id.layout1);
 
+
+
         for(int index=0; index<lettere.size();index++){
-            TextView t=new TextView(null);
+            TextView t=new TextView(GiocoActivity.this);
             t.setText(""+lettere.get(index));
-            t.setWidth(40);
-            t.setHeight(0);
+            t.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.MATCH_PARENT));
+            t.setWidth(90);
             t.setId(index);
+
+
+            GradientDrawable gd = new GradientDrawable();
+            gd.setColor(0xFFFFFFFF); // Changes this drawbale to use a single color instead of a gradient
+            gd.setCornerRadius(5);
+            gd.setStroke(1, 0xFF000000);
+            t.setBackground(gd);
             layout1.addView(t);
         }
     }
