@@ -22,6 +22,7 @@ import java.util.Random;
 
 public class GiocoActivity extends AppCompatActivity {
     private ArrayList<Character> lettere = new ArrayList<>();
+    private int lett=0;
 
 
     @Override
@@ -59,6 +60,8 @@ public class GiocoActivity extends AppCompatActivity {
 
         Random r = new Random();
         int i = r.nextInt(1160 - 0) + 0;
+        TextView t1= (TextView)findViewById(R.id.lettereU);
+        t1.setText(""+parole.get(i));
 
 
         boolean flag=true;
@@ -73,6 +76,18 @@ public class GiocoActivity extends AppCompatActivity {
                 flag=false;
             }
         }
+
+        LinearLayout layout2= (LinearLayout)findViewById(R.id.layout2);
+        for(int index=0;index<26;index++){
+            Button b=(Button)layout2.getChildAt(index);
+            if((""+lettere.get(0)).equals(""+b.getText())){
+                layout2.removeViewAt(index);
+            }
+            else if((""+lettere.get(lettere.size()-1)).equals(""+b.getText())){
+                layout2.removeViewAt(index);
+            }
+        }
+
 
         LinearLayout layout1= (LinearLayout) findViewById(R.id.layout1);
 
@@ -89,6 +104,7 @@ public class GiocoActivity extends AppCompatActivity {
             }
             else{
                 t.setText("_");
+                lett++;
             }
 
             t.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.MATCH_PARENT));
@@ -119,13 +135,20 @@ public class GiocoActivity extends AppCompatActivity {
         t.setText(t.getText()+"   "+b.getText());
 
         for(int index=1; index<lettere.size()-1;index++){
-            if(lettere.get(index).equals(""+b.getText())){
-                TextView t1= (TextView)findViewById(index);
-                t.setText(""+b.getText());
+
+            if((""+lettere.get(index)).equals(""+b.getText())){
+                LinearLayout layout1= (LinearLayout)findViewById(R.id.layout1);
+                TextView t1= (TextView)layout1.getChildAt(index);
+                t1.setText(""+b.getText());
+                lett--;
             }
         }
 
         LinearLayout layout2= (LinearLayout) findViewById(R.id.layout2);
         layout2.removeView(view);
+
+        if(lett==0){
+            setContentView(R.layout.activity_risultato);
+        }
     }
 }

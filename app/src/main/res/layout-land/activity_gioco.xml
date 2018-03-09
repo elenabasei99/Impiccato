@@ -91,6 +91,7 @@
         android:ems="10"
         android:inputType="textMultiLine"
         android:singleLine="false"
+        android:textAllCaps="true"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.964"
@@ -121,7 +122,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="A" />
+                android:text="a"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/b"
@@ -129,7 +131,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="B" />
+                android:text="b"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/c"
@@ -137,7 +140,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="C" />
+                android:text="c"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/d"
@@ -145,7 +149,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="D" />
+                android:text="d"
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/e"
@@ -153,7 +158,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="E" />
+                android:text="e"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/f"
@@ -161,7 +167,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="F" />
+                android:text="f"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/g"
@@ -169,7 +176,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="G" />
+                android:text="g"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/h"
@@ -177,7 +185,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="H" />
+                android:text="h"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/i"
@@ -185,7 +194,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="I" />
+                android:text="i"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/j"
@@ -193,7 +203,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="J" />
+                android:text="j"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/k"
@@ -201,7 +212,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="K" />
+                android:text="k"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/l"
@@ -209,7 +221,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="L" />
+                android:text="l"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/m"
@@ -217,7 +230,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="M" />
+                android:text="m"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/n"
@@ -225,7 +239,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="N" />
+                android:text="n"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/o"
@@ -233,7 +248,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="O" />
+                android:text="o"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/p"
@@ -241,7 +257,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="P" />
+                android:text="p"
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/q"
@@ -249,7 +266,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="Q" />
+                android:text="q"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/r"
@@ -257,7 +275,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="R" />
+                android:text="r"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/s"
@@ -265,7 +284,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="S" />
+                android:text="s"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/t"
@@ -273,7 +293,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="T" />
+                android:text="t"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/v"
@@ -281,7 +302,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="V" />
+                android:text="v"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/u"
@@ -289,7 +311,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="U" />
+                android:text="u"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/w"
@@ -297,7 +320,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="W" />
+                android:text="w"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/x"
@@ -305,7 +329,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="X" />
+                android:text="x"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/y"
@@ -313,7 +338,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="Y" />
+                android:text="y"
+                android:textAllCaps="true"/>
 
             <Button
                 android:id="@+id/z"
@@ -321,7 +347,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="lettere"
-                android:text="Z" />
+                android:text="z"
+                android:textAllCaps="true"/>
 
         </LinearLayout>
     </HorizontalScrollView>
