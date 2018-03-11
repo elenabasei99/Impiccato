@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.example.studente.impiccato.GiocoActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -71,13 +72,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/imp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.027"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <TextView
         android:id="@+id/lettereU"
@@ -123,7 +124,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="a"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/b"
@@ -132,7 +133,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="b"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/c"
@@ -141,7 +142,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="c"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/d"
@@ -159,7 +160,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="e"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/f"
@@ -168,7 +169,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="f"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/g"
@@ -177,7 +178,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="g"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/h"
@@ -186,7 +187,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="h"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/i"
@@ -195,7 +196,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="i"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/j"
@@ -204,7 +205,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="j"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/k"
@@ -213,7 +214,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="k"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/l"
@@ -222,7 +223,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="l"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/m"
@@ -231,7 +232,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="m"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/n"
@@ -240,7 +241,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="n"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/o"
@@ -249,7 +250,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="o"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/p"
@@ -267,7 +268,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="q"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/r"
@@ -276,7 +277,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="r"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/s"
@@ -285,7 +286,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="s"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/t"
@@ -294,7 +295,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="t"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/v"
@@ -303,7 +304,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="v"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/u"
@@ -312,7 +313,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="u"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/w"
@@ -321,7 +322,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="w"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/x"
@@ -330,7 +331,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="x"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/y"
@@ -339,7 +340,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="y"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
             <Button
                 android:id="@+id/z"
@@ -348,7 +349,7 @@
                 android:layout_weight="1"
                 android:onClick="lettere"
                 android:text="z"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true" />
 
         </LinearLayout>
     </HorizontalScrollView>

@@ -1,5 +1,6 @@
 package com.example.studente.impiccato;
 
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,7 +24,7 @@ import java.util.Random;
 
 public class GiocoActivity extends AppCompatActivity {
     private ArrayList<Character> lettere = new ArrayList<>();
-    private int lett=0;
+    private int lett=0,sbagli=0;
 
 
     @Override
@@ -60,9 +62,6 @@ public class GiocoActivity extends AppCompatActivity {
 
         Random r = new Random();
         int i = r.nextInt(1160 - 0) + 0;
-        TextView t1= (TextView)findViewById(R.id.lettereU);
-        t1.setText(""+parole.get(i));
-
 
         boolean flag=true;
         int j=0;
@@ -77,14 +76,22 @@ public class GiocoActivity extends AppCompatActivity {
             }
         }
 
+        int cont=0;
+
         LinearLayout layout2= (LinearLayout)findViewById(R.id.layout2);
-        for(int index=0;index<26;index++){
-            Button b=(Button)layout2.getChildAt(index);
+        for(int index=0;index<26-cont;index++){
+            Button b=(Button) layout2.getChildAt(index);
             if((""+lettere.get(0)).equals(""+b.getText())){
                 layout2.removeViewAt(index);
+                index--;
+                cont++;
             }
-            else if((""+lettere.get(lettere.size()-1)).equals(""+b.getText())){
-                layout2.removeViewAt(index);
+            else if(!(""+lettere.get(0)).equals((""+lettere.get(lettere.size()-1)))){
+                if((""+lettere.get(lettere.size()-1)).equals(""+b.getText())) {
+                    layout2.removeViewAt(index);
+                    index--;
+                    cont++;
+                }
             }
         }
 
@@ -130,6 +137,7 @@ public class GiocoActivity extends AppCompatActivity {
     }
 
     public void lettere(View view) {
+        boolean flag=false;
         TextView t= (TextView)findViewById(R.id.lettereU);
         Button b= (Button) findViewById(view.getId());
         t.setText(t.getText()+"   "+b.getText());
@@ -141,7 +149,14 @@ public class GiocoActivity extends AppCompatActivity {
                 TextView t1= (TextView)layout1.getChildAt(index);
                 t1.setText(""+b.getText());
                 lett--;
+                flag=true;
             }
+        }
+
+        if(!flag){
+            sbagli++;
+            ImageView img=(ImageView)findViewById(R.id.imageView);
+            img.setBackgroundResource(getResources().getIdentifier("imp"+sbagli, "drawable",  getPackageName()));
         }
 
         LinearLayout layout2= (LinearLayout) findViewById(R.id.layout2);
@@ -149,6 +164,11 @@ public class GiocoActivity extends AppCompatActivity {
 
         if(lett==0){
             setContentView(R.layout.activity_risultato);
+            sbagli=0;
+        }
+        else if(sbagli==13){
+            setContentView(R.layout.activity_risultato);
+            sbagli=0;
         }
     }
 }
