@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+    private int minimo=4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, GiocoActivity.class);
                 i.putExtra("numParole",1);
+                i.putExtra("minimo",minimo);
                 startActivity(i);
             }
         });
@@ -42,6 +45,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.lunghezza, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter);
+        spinner2.setOnItemSelectedListener(this);
     }
 
     public void salva(View view){
@@ -68,6 +77,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Configuration config = new Configuration(res.getConfiguration());
             config.locale = locale;
             res.updateConfiguration(config, res.getDisplayMetrics());
+        }
+
+        Spinner spinner2 = (Spinner) findViewById(R.id.spinner);
+        if((String.valueOf(spinner.getSelectedItem())).equals("4 lettere")){
+            minimo=4;
+        }
+        else if((String.valueOf(spinner.getSelectedItem())).equals("6 lettere")){
+            minimo=6;
+        }
+        else{
+            minimo=8;
         }
     }
 

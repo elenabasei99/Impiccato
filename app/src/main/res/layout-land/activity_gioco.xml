@@ -93,7 +93,7 @@
         android:inputType="textMultiLine"
         android:singleLine="false"
         android:textAllCaps="true"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.964"

@@ -5,4 +5,10 @@
         <item>Italiano</item>
         <item>Inglese</item>
     </string-array>
+
+    <string-array name="lunghezza">
+        <item>4 lettere</item>
+        <item>6 lettere</item>
+        <item>8 lettere</item>
+    </string-array>
 </resources>
