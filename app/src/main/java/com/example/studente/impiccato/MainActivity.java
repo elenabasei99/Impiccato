@@ -24,17 +24,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton buttonGoTo = findViewById(R.id.btnGioca);
-        buttonGoTo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, GiocoActivity.class);
-                i.putExtra("numParole",1);
-                i.putExtra("minimo",minimo);
-                startActivity(i);
-            }
-        });
+    }
 
+    public void gioca(View view){
+        Intent i = new Intent(MainActivity.this, GiocoActivity.class);
+        i.putExtra("numParole",1);
+        i.putExtra("minimo",minimo);
+        startActivity(i);
     }
 
     public void setting(View v) {
@@ -49,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.lunghezza, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter);
+        spinner2.setAdapter(adapter2);
         spinner2.setOnItemSelectedListener(this);
     }
 
@@ -60,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        if((String.valueOf(spinner.getSelectedItem())).equals("Italiano")){
+        if((spinner.getSelectedItem().toString()).equals("Italiano")){
             Locale locale = new Locale("it");
             Locale.setDefault(locale);
 
@@ -80,10 +76,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner);
-        if((String.valueOf(spinner.getSelectedItem())).equals("4 lettere")){
+        if((String.valueOf(spinner.getSelectedItem())).equals("4")){
             minimo=4;
         }
-        else if((String.valueOf(spinner.getSelectedItem())).equals("6 lettere")){
+        else if((String.valueOf(spinner.getSelectedItem())).equals("6")){
             minimo=6;
         }
         else{

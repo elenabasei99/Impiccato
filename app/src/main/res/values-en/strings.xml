@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hangman</string>
+    <string name="impostazioni">Settings</string>
+    <string name="lingua">Language</string>
+    <string name="lunghezza_minima_parole">Word minimum lenght</string>
+    <string name="salva">SAVE</string>
+    <string name="menu">MENU</string>
+    <string name="prossima_parola">NEXT WORD</string>
+    <string name="la_parola_da_indovivare_era">"The word to guess was: "</string>
+    <string name="i_tentativi_che_hai_utilizzato_sono">"The attempts you used are: "</string>
+    <string name="parola_numero">"Word number "</string>
+    <string name="hai_indovinato">YOU GUESSED</string>
+    <string name="non_hai_indovinato">YOU DIDN\'T GUESS</string>
+</resources>

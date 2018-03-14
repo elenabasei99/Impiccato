@@ -340,18 +340,18 @@ public class GiocoActivity extends AppCompatActivity {
     private void risultato(){
         if(sbagli!=12){
             TextView titolo=(TextView)findViewById(R.id.titolo);
-            titolo.setText("HAI INDOVINATO");
+            titolo.setText(R.string.hai_indovinato);
         }
         else{
             TextView titolo=(TextView)findViewById(R.id.titolo);
-            titolo.setText("NON HAI INDOVINATO");
+            titolo.setText(R.string.non_hai_indovinato);
         }
 
         TextView parola=(TextView)findViewById(R.id.parola);
-        parola.setText("La parola da indovinare era: "+this.parola);
+        parola.setText(parola.getText()+" "+this.parola);
 
         TextView tentativi=(TextView)findViewById(R.id.tentativi);
-        tentativi.setText("Hai utilizzato in totale "+lettereu.length()+" tentativi");
+        tentativi.setText(tentativi.getText()+" "+lettereu.length());
     }
 
     public void menu(View view){
