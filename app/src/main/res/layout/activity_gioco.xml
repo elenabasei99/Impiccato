@@ -344,7 +344,7 @@
         android:layout_marginTop="8dp"
         android:paddingBottom="0dp"
         android:paddingTop="15dp"
-        android:text="@string/parola_numero"
+        android:text="@string/parola_numero2"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"

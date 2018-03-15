@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        if((spinner.getSelectedItem().toString()).equals("Italiano")){
+        if((spinner.getSelectedItem().toString()).equals("Italiano")  ||  (spinner.getSelectedItem().toString()).equals("Italian")){
             Locale locale = new Locale("it");
             Locale.setDefault(locale);
 

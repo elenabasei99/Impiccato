@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Hangman</string>
     <string name="impostazioni">Settings</string>
     <string name="lingua">Language</string>
@@ -9,7 +9,21 @@
     <string name="prossima_parola">NEXT WORD</string>
     <string name="la_parola_da_indovivare_era">"The word to guess was: "</string>
     <string name="i_tentativi_che_hai_utilizzato_sono">"The attempts you used are: "</string>
-    <string name="parola_numero">"Word number "</string>
     <string name="hai_indovinato">YOU GUESSED</string>
     <string name="non_hai_indovinato">YOU DIDN\'T GUESS</string>
+    <string name="parola_numero">Word number</string>
+    <string name="parola_numero2">Word number</string>
+
+    <string-array name="lingue">
+        <item>Italian</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="lunghezza">
+        <item>4 letters</item>
+        <item>6 letters</item>
+        <item>8 letters</item>
+    </string-array>
+    <string name="parole_non_indovinate">Word not guessed</string>
+    <string name="parole_indovinate">Word guessed</string>
 </resources>

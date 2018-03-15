@@ -9,7 +9,21 @@
     <string name="prossima_parola">PROSSIMA PAROLA</string>
     <string name="la_parola_da_indovivare_era">La parola da indovinare era:</string>
     <string name="i_tentativi_che_hai_utilizzato_sono">I tentativi che hai usato sono:</string>
-    <string name="parola_numero">Parola numero</string>
     <string name="hai_indovinato">HAI INDOVINATO</string>
     <string name="non_hai_indovinato">NON HAI INDOVINATO</string>
+    <string name="parola_numero">Parola numero</string>
+    <string name="parola_numero2">Parola numero</string>
+
+    <string-array name="lingue">
+        <item>Italiano</item>
+        <item>Inglese</item>
+    </string-array>
+
+    <string-array name="lunghezza">
+        <item>4 lettere</item>
+        <item>6 lettere</item>
+        <item>8 lettere</item>
+    </string-array>
+    <string name="parole_non_indovinate">Parole non indovinate</string>
+    <string name="parole_indovinate">Parole indovinate</string>
 </resources>

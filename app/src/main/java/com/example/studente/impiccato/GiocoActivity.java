@@ -3,12 +3,8 @@ package com.example.studente.impiccato;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -23,14 +19,14 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Locale;
 import java.util.Random;
 
 public class GiocoActivity extends AppCompatActivity {
     private ArrayList<Character> lettere = new ArrayList<>(),lettereU=new ArrayList<>();
     private String parola="",lettereu="";
-    private int lett=0,sbagli=1,numParole=1;
-    private Boolean prossima=false,risultato=false;
+    private int lett=0,sbagli=1,numParole=1, minimo=4, paroleInd=0, paroleNonInd=0;
+    private Boolean prossima=false,risultato=false,timer=false;
     private Bundle savedInstanceState;
 
 
@@ -43,16 +39,42 @@ public class GiocoActivity extends AppCompatActivity {
 
         Intent intent= getIntent();
         numParole=intent.getIntExtra("numParole",1);
+        minimo=intent.getIntExtra("minimo",4);
+        paroleInd=intent.getIntExtra("indovinato",0);
+        paroleNonInd=intent.getIntExtra("nonIndovinato",0);
 
         try{
             risultato=savedInstanceState.getBoolean("risultato");
+            parola=savedInstanceState.getString("parola");
+            lettereu=savedInstanceState.getString("lettereu");
         }
         catch (Exception e){
             risultato=false;
         }
 
+        try {
+            paroleInd = savedInstanceState.getInt("indovinato");
+            paroleNonInd = savedInstanceState.getInt("nonIndovinato");
+        }
+        catch (Exception e){
+
+        }
+
         if(risultato){
             setContentView(R.layout.activity_risultato);
+            TextView parola= (TextView)findViewById(R.id.parola);
+            parola.setText(parola.getText()+" "+this.parola);
+            TextView tentativi= (TextView)findViewById(R.id.parola);
+            tentativi.setText(tentativi.getText()+" "+lettereu.length());
+
+            if(sbagli!=12){
+                TextView titolo=(TextView)findViewById(R.id.titolo);
+                titolo.setText(R.string.hai_indovinato);
+            }
+            else{
+                TextView titolo=(TextView)findViewById(R.id.titolo);
+                titolo.setText(R.string.non_hai_indovinato);
+            }
         }
         else {
             inizia();
@@ -63,7 +85,7 @@ public class GiocoActivity extends AppCompatActivity {
 
         try{
             TextView titolo= (TextView)findViewById(R.id.titolo);
-            titolo.setText("Parola numero "+savedInstanceState.getInt("numParole"));
+            titolo.setText(titolo.getText()+" "+savedInstanceState.getInt("numParole"));
             prossima=savedInstanceState.getBoolean("prossima");
         }
         catch (Exception e){
@@ -71,7 +93,7 @@ public class GiocoActivity extends AppCompatActivity {
         }
 
         TextView titolo= (TextView)findViewById(R.id.titolo);
-        titolo.setText("Parola numero "+numParole);
+        titolo.setText(titolo.getText()+" "+numParole);
 
         if(savedInstanceState!=null && !prossima){
             inCorso();
@@ -85,6 +107,7 @@ public class GiocoActivity extends AppCompatActivity {
     private void inCorso(){
         lett=savedInstanceState.getInt("lett");
         sbagli=savedInstanceState.getInt("sbagli");
+        minimo=savedInstanceState.getInt("minimo");
         parola=savedInstanceState.getString("parola");
         lettereu=savedInstanceState.getString("lettereU");
 
@@ -195,7 +218,7 @@ public class GiocoActivity extends AppCompatActivity {
         String json = null;
         try {
 
-            InputStream is = this.getAssets().open("parole.json");
+            InputStream is = this.getAssets().open("parole_"+ Locale.getDefault().getLanguage()+".json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -221,7 +244,11 @@ public class GiocoActivity extends AppCompatActivity {
         }
 
         Random r = new Random();
-        int i = r.nextInt(1160 - 0) + 0;
+        int i=0;
+
+        do{
+            i= r.nextInt(1160 - 0) + 0;
+        }while(parole.get(i).length()<minimo);
 
         parola = parole.get(i);
 
@@ -326,25 +353,33 @@ public class GiocoActivity extends AppCompatActivity {
             risultato();
         }
         else if(sbagli==12){
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            setContentView(R.layout.activity_risultato);
+            Thread timer=new Timer(this);
+
             risultato=true;
             risultato();
         }
     }
 
+    public void setTimer(Boolean val){
+        timer=val;
+    }
+
     private void risultato(){
+
+        while(!timer){
+        }
+
+        setContentView(R.layout.activity_risultato);
+
         if(sbagli!=12){
             TextView titolo=(TextView)findViewById(R.id.titolo);
             titolo.setText(R.string.hai_indovinato);
+            paroleInd++;
         }
         else{
             TextView titolo=(TextView)findViewById(R.id.titolo);
             titolo.setText(R.string.non_hai_indovinato);
+            paroleNonInd++;
         }
 
         TextView parola=(TextView)findViewById(R.id.parola);
@@ -352,6 +387,12 @@ public class GiocoActivity extends AppCompatActivity {
 
         TextView tentativi=(TextView)findViewById(R.id.tentativi);
         tentativi.setText(tentativi.getText()+" "+lettereu.length());
+
+        TextView ind=(TextView)findViewById(R.id.indovinato);
+        ind.setText(ind.getText()+" "+this.paroleInd);
+
+        TextView nonInd=(TextView)findViewById(R.id.nonIndovinato);
+        nonInd.setText(nonInd.getText()+" "+this.paroleNonInd);
     }
 
     public void menu(View view){
@@ -367,6 +408,8 @@ public class GiocoActivity extends AppCompatActivity {
         Activity a=GiocoActivity.this;
         Intent i = new Intent(GiocoActivity.this, GiocoActivity.class);
         i.putExtra("numParole",numParole);
+        i.putExtra("indovinato",paroleInd);
+        i.putExtra("nonIndovinato",paroleNonInd);
         startActivity(i);
     }
 
@@ -375,11 +418,14 @@ public class GiocoActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt("lett",lett);
         outState.putInt("sbagli",sbagli);
+        outState.putInt("minimo",minimo);
         outState.putInt("numParole",numParole);
+        outState.putInt("indovinato",paroleInd);
+        outState.putInt("nonIndovinato",paroleNonInd);
         outState.putString("parola",parola);
         outState.putString("lettereU",lettereu);
         outState.putBoolean("prossima",prossima);
-        outState.putBoolean("risultato",prossima);
+        outState.putBoolean("risultato",risultato);
         super.onSaveInstanceState(outState);
     }
 
@@ -389,11 +435,14 @@ public class GiocoActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("prova",MODE_PRIVATE).edit();
         editor.putInt("lett",lett);
         editor.putInt("sbagli",sbagli);
+        editor.putInt("minimo",minimo);
         editor.putInt("numParole",numParole);
+        editor.putInt("indovinato",paroleInd);
+        editor.putInt("nonIndovinato",paroleNonInd);
         editor.putString("parola",parola);
         editor.putString("lettereU",lettereu);
         editor.putBoolean("prossima",prossima);
-        editor.putBoolean("risultato",prossima);
+        editor.putBoolean("risultato",risultato);
         editor.apply();
     }
 }
