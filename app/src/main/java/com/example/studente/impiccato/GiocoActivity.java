@@ -218,7 +218,7 @@ public class GiocoActivity extends AppCompatActivity {
         String json = null;
         try {
 
-            InputStream is = this.getAssets().open("parole_"+ Locale.getDefault().getLanguage()+".json");
+            InputStream is = this.getAssets().open("parole_"+ Locale.getDefault().getDisplayLanguage()+".json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
