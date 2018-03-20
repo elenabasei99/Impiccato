@@ -1,9 +1,5 @@
 package com.example.studente.impiccato;
 
-/**
- * Created by Denis on 15/03/2018.
- */
-
 public class Timer extends Thread{
     private  GiocoActivity activity;
 

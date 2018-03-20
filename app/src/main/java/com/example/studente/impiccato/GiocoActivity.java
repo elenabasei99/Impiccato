@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class GiocoActivity extends AppCompatActivity {
     private ArrayList<Character> lettere = new ArrayList<>(),lettereU=new ArrayList<>();
-    private String parola="",lettereu="";
+    private String parola="",lettereu="",lang="en";
     private int lett=0,sbagli=1,numParole=1, minimo=4, paroleInd=0, paroleNonInd=0;
     private Boolean prossima=false,risultato=false,timer=false;
     private Bundle savedInstanceState;
@@ -42,6 +42,7 @@ public class GiocoActivity extends AppCompatActivity {
         minimo=intent.getIntExtra("minimo",4);
         paroleInd=intent.getIntExtra("indovinato",0);
         paroleNonInd=intent.getIntExtra("nonIndovinato",0);
+        lang=intent.getStringExtra("lingua");
 
         try{
             risultato=savedInstanceState.getBoolean("risultato");
@@ -218,7 +219,7 @@ public class GiocoActivity extends AppCompatActivity {
         String json = null;
         try {
 
-            InputStream is = this.getAssets().open("parole_"+ Locale.getDefault().getDisplayLanguage()+".json");
+            InputStream is = this.getAssets().open("parole_"+ lang+".json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -366,9 +367,6 @@ public class GiocoActivity extends AppCompatActivity {
 
     private void risultato(){
 
-        while(!timer){
-        }
-
         setContentView(R.layout.activity_risultato);
 
         if(sbagli!=12){
@@ -397,6 +395,8 @@ public class GiocoActivity extends AppCompatActivity {
 
     public void menu(View view){
         Intent i = new Intent(GiocoActivity.this, MainActivity.class);
+        i.putExtra("lingua",lang);
+        i.putExtra("minimo",minimo);
         startActivity(i);
     }
 

@@ -17,6 +17,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private int minimo=4;
+    private String lang="en";
 
 
     @Override
@@ -24,12 +25,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try{
+            Intent i = getIntent();
+            lang=i.getStringExtra("lingua");
+            minimo=i.getIntExtra("minimo",4);
+        }
+        catch(Exception e){
+
+        }
+
     }
 
     public void gioca(View view){
         Intent i = new Intent(MainActivity.this, GiocoActivity.class);
         i.putExtra("numParole",1);
         i.putExtra("minimo",minimo);
+        i.putExtra("lingua",lang);
         startActivity(i);
     }
 
@@ -59,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if((spinner.getSelectedItem().toString()).equals("Italiano")  ||  (spinner.getSelectedItem().toString()).equals("Italian")){
             Locale locale = new Locale("it");
             Locale.setDefault(locale);
+            lang="it";
 
             Resources res = this.getResources();
             Configuration config = new Configuration(res.getConfiguration());
@@ -68,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         else{
             Locale locale = new Locale("en");
             Locale.setDefault(locale);
+            lang="en";
 
             Resources res = this.getResources();
             Configuration config = new Configuration(res.getConfiguration());
