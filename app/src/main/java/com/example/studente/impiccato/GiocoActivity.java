@@ -410,6 +410,8 @@ public class GiocoActivity extends AppCompatActivity {
         i.putExtra("numParole",numParole);
         i.putExtra("indovinato",paroleInd);
         i.putExtra("nonIndovinato",paroleNonInd);
+        i.putExtra("lingua",lang);
+        i.putExtra("minimo",minimo);
         startActivity(i);
     }
 
