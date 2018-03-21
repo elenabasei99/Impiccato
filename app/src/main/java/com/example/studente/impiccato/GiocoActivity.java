@@ -25,8 +25,8 @@ import java.util.Random;
 public class GiocoActivity extends AppCompatActivity {
     private ArrayList<Character> lettere = new ArrayList<>(),lettereU=new ArrayList<>();
     private String parola="",lettereu="",lang="en";
-    private int lett=0,sbagli=1,numParole=1, minimo=4, paroleInd=0, paroleNonInd=0;
-    private Boolean prossima=false,risultato=false,timer=false;
+    private int lett=0,sbagli=0,numParole=1, minimo=4, paroleInd=0, paroleNonInd=0;
+    private Boolean prossima=false,risultato=false;
     private Bundle savedInstanceState;
 
 
@@ -42,7 +42,15 @@ public class GiocoActivity extends AppCompatActivity {
         minimo=intent.getIntExtra("minimo",4);
         paroleInd=intent.getIntExtra("indovinato",0);
         paroleNonInd=intent.getIntExtra("nonIndovinato",0);
-        lang=intent.getStringExtra("lingua");
+
+        try{
+
+            lang=intent.getStringExtra("lingua");
+
+        }
+        catch (Exception e){
+            lang="en";
+        }
 
         try{
             risultato=savedInstanceState.getBoolean("risultato");
@@ -86,6 +94,7 @@ public class GiocoActivity extends AppCompatActivity {
 
         try{
             TextView titolo= (TextView)findViewById(R.id.titolo);
+            titolo.setText((R.string.parola_numero2));
             titolo.setText(titolo.getText()+" "+savedInstanceState.getInt("numParole"));
             prossima=savedInstanceState.getBoolean("prossima");
         }
@@ -94,6 +103,7 @@ public class GiocoActivity extends AppCompatActivity {
         }
 
         TextView titolo= (TextView)findViewById(R.id.titolo);
+        titolo.setText((R.string.parola_numero2));
         titolo.setText(titolo.getText()+" "+numParole);
 
         if(savedInstanceState!=null && !prossima){
@@ -340,9 +350,9 @@ public class GiocoActivity extends AppCompatActivity {
         }
 
         if(!flag){
+            sbagli++;
             ImageView img=(ImageView)findViewById(R.id.imageView);
             img.setBackgroundResource(getResources().getIdentifier("imp"+sbagli, "drawable",  getPackageName()));
-            sbagli++;
         }
 
         LinearLayout layout2= (LinearLayout) findViewById(R.id.layout2);
@@ -353,23 +363,17 @@ public class GiocoActivity extends AppCompatActivity {
             risultato=true;
             risultato();
         }
-        else if(sbagli==12){
-            Thread timer=new Timer(this);
-
+        else if(sbagli==11){
             risultato=true;
             risultato();
         }
-    }
-
-    public void setTimer(Boolean val){
-        timer=val;
     }
 
     private void risultato(){
 
         setContentView(R.layout.activity_risultato);
 
-        if(sbagli!=12){
+        if(sbagli!=11){
             TextView titolo=(TextView)findViewById(R.id.titolo);
             titolo.setText(R.string.hai_indovinato);
             paroleInd++;

@@ -18,6 +18,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private int minimo=4;
     private String lang="en";
+    private boolean impostazioni=false;
 
 
     @Override
@@ -31,17 +32,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             minimo=i.getIntExtra("minimo",4);
         }
         catch(Exception e){
-
+            lang="en";
+            minimo=4;
         }
 
     }
 
     public void gioca(View view){
-        Intent i = new Intent(MainActivity.this, GiocoActivity.class);
-        i.putExtra("numParole",1);
-        i.putExtra("minimo",minimo);
-        i.putExtra("lingua",lang);
-        startActivity(i);
+        if(impostazioni){
+            Intent i = new Intent(MainActivity.this, GiocoActivity.class);
+            i.putExtra("numParole",1);
+            i.putExtra("minimo",minimo);
+            i.putExtra("lingua",lang);
+            startActivity(i);
+        }
+        else{
+            Intent i = new Intent(MainActivity.this, GiocoActivity.class);
+            i.putExtra("numParole",1);
+            i.putExtra("minimo",4);
+            i.putExtra("lingua","en");
+            startActivity(i);
+        }
+
     }
 
     public void setting(View v) {
@@ -71,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Locale locale = new Locale("it");
             Locale.setDefault(locale);
             lang="it";
+            impostazioni=true;
 
             Resources res = this.getResources();
             Configuration config = new Configuration(res.getConfiguration());
@@ -81,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Locale locale = new Locale("en");
             Locale.setDefault(locale);
             lang="en";
+            impostazioni=true;
 
             Resources res = this.getResources();
             Configuration config = new Configuration(res.getConfiguration());
